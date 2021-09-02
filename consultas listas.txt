@@ -1,0 +1,37 @@
+ingrediente: 
+
+{
+	"nombre":"harina",
+    "cantidad":1,
+    "unidad":"kg",
+    "cantidadEnvase":3,
+    "unidadEnvase":"kg",
+    "precioEnvase":300,
+    "id":1a0c939b-c6be-4329-803b-b342a74db327
+}
+
+
+receta:
+
+{
+	"nombreReceta":"la mejor receta",
+	"ingredientes":[
+		{
+			"nombre":"harina",
+		    "cantidad":1,
+		    "unidad":"kg",
+		    "cantidadEnvase":3,
+		    "unidadEnvase":"kg",
+		    "precioEnvase":300
+		},
+		{
+			"nombre":"azucar",
+		    "cantidad":2,
+		    "unidad":"kg",
+		    "cantidadEnvase":1,
+		    "unidadEnvase":"kg",
+		    "precioEnvase":76
+		}
+	]
+}
+

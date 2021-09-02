@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/recetafacil`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -30,15 +30,13 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genero, Plataforma } = sequelize.models;
+const { Usuario, Receta, Ingrediente } = sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-Videogame.belongsToMany(Genero, {through: 'videogame_genero'});
-Genero.belongsToMany(Videogame, {through: 'videogame_genero'});
+Usuario.hasMany(Receta);
+Receta.belongsTo(Usuario);
 
-Videogame.belongsToMany(Plataforma, {through: 'videogame_plataforma'});
-Plataforma.belongsToMany(Videogame, {through: 'videogame_plataforma'});
+Receta.hasMany(Ingrediente);
+Ingrediente.belongsTo(Receta);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Videogame, Genero } = require('./db.js');
